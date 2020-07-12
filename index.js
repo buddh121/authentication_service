@@ -19,9 +19,10 @@ app.use(bodyParser.raw());
 app.use('/',routes)
 
 //mongodb connection from .env
-dbName = process.env.DB
-console.log(dbName)
-mongoose.connect(`mongodb://127.0.0.1:27171/${dbName}`, 
+const IP = process.env.MONGO_IP
+const PORT = process.env.MONGO_PORT
+const dbName = process.env.DB
+mongoose.connect(`mongodb://${IP}:${PORT}/${dbName}`, 
 	{
 		useUnifiedTopology: true, 
 		useNewUrlParser: true
